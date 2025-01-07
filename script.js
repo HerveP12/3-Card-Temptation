@@ -549,7 +549,7 @@ function applyPayout(dealerRevealCount) {
 function endHand() {
   gameActive = false;
   document.getElementById("action-buttons").style.display = "none";
-  setTimeout(resetGame, 3000);
+  setTimeout(resetGame, 4500);
 }
 
 function resetGame() {
