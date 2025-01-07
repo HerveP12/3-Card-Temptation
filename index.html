@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3 Card Temptation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="game-container">
+      <h1>3 Card Temptation</h1>
+
+      <!-- Player Balance -->
+      <div id="balance-section">
+        <h2>Player Balance: <span id="balance">$10,000</span></h2>
+      </div>
+
+      <!-- Chip Rack -->
+      <div id="chip-rack">
+        <h3>Select a Chip to Add to All Bet Spots</h3>
+        <div id="chips-container">
+          <!-- Example chip denominations -->
+          <div class="casino-chip" data-value="5">$5</div>
+          <div class="casino-chip" data-value="25">$25</div>
+          <div class="casino-chip" data-value="100">$100</div>
+          <div class="casino-chip" data-value="500">$500</div>
+          <div class="casino-chip" data-value="1000">$1000</div>
+        </div>
+      </div>
+
+      <!-- Bet Spots -->
+      <div id="bet-circles">
+        <div class="bet-circle" id="circle2">
+          <span class="bet-label">Bet 2</span>
+          <div class="bet-chip-stack" id="stack2"></div>
+          <div class="bet-amount" id="amount2">$0</div>
+        </div>
+        <div class="bet-circle" id="circle3">
+          <span class="bet-label">Bet 3</span>
+          <div class="bet-chip-stack" id="stack3"></div>
+          <div class="bet-amount" id="amount3">$0</div>
+        </div>
+        <div class="bet-circle" id="circle4">
+          <span class="bet-label">Bet 4</span>
+          <div class="bet-chip-stack" id="stack4"></div>
+          <div class="bet-amount" id="amount4">$0</div>
+        </div>
+        <div class="bet-circle" id="circle5">
+          <span class="bet-label">Bet 5</span>
+          <div class="bet-chip-stack" id="stack5"></div>
+          <div class="bet-amount" id="amount5">$0</div>
+        </div>
+      </div>
+
+      <!-- Deal Button -->
+      <div id="deal-section">
+        <button class="btn-gold" onclick="lockBetsAndDeal()">Deal</button>
+      </div>
+
+      <!-- Dealer Cards -->
+      <div id="dealer-section">
+        <h2>Dealer's Cards</h2>
+        <div id="dealer-hand" class="card-row"></div>
+      </div>
+
+      <!-- Player Cards -->
+      <div id="player-section">
+        <h2>Your 3-Card Hand</h2>
+        <div id="player-hand" class="card-row"></div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div id="action-buttons" style="display: none">
+        <button class="btn-gold" id="btn-continue" onclick="playerContinue()">
+          Continue
+        </button>
+        <button class="btn-gold" id="btn-takewin" onclick="playerTakeWin()">
+          Take Win
+        </button>
+      </div>
+
+      <!-- Result / Status Display -->
+      <div id="result"></div>
+
+      <!-- Game Info -->
+      <div id="game-info-button">
+        <button class="btn-gold" onclick="toggleGameInfo()">Game Info</button>
+      </div>
+
+      <!-- Rules and Paytable -->
+      <div id="rules-and-paytable" style="display: none">
+        <h2>Game Rules</h2>
+        <ul style="text-align: left">
+          <li>
+            1. Select a chip to add to the bet; all 4 circles will get that chip
+            (same total).
+          </li>
+          <li>2. Dealer gets 5 cards, Player gets 3 cards.</li>
+          <li>
+            3. Compare player's 3-card to dealer's partial or best 3-card as the
+            dealer's cards are revealed (2-card, 3-card, 4-card, 5-card).
+          </li>
+          <li>4. If dealer wins at any stage, player loses all bets.</li>
+          <li>
+            5. Player can stop at any winning stage for partial payouts or
+            continue for bigger potential payouts.
+          </li>
+        </ul>
+
+        <h2>Payouts</h2>
+        <ul style="text-align: left">
+          <li>
+            <strong>Beating a 2-card dealer hand:</strong>
+            <ul>
+              <li>(2) pays 1:1, (3)/(4)/(5) push</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Beating a 3-card dealer hand:</strong>
+            <ul>
+              <li>(2)/(3) pay 1:1, (4)/(5) push</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Beating a 4-card dealer hand:</strong>
+            <ul>
+              <li>(2)/(3) pay 1:1, (4) pays 2:1, (5) push</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Beating a 5-card dealer hand:</strong>
+            <ul>
+              <li>(2)/(3) pay 1:1, (4) pays 2:1, (5) pays 4:1</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
